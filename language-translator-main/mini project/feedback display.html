@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="utf-8">
+  <title>Feedback Display</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+      background-color: #f4f4f4;
+    }
+    .feedback-container {
+      max-width: 800px;
+      margin: 0 auto;
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 5px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    .feedback-entry {
+      margin-bottom: 20px;
+      border-bottom: 1px solid #ccc;
+      padding-bottom: 15px;
+    }
+    .rating {
+      font-size: 24px;
+      margin-bottom: 5px;
+      color: #ffc107; /* Yellow color for rating */
+    }
+    .feedback-text {
+      font-size: 18px;
+      color: #555;
+    }
+    h1 {
+      font-size: 28px;
+      color: #333;
+      margin-bottom: 20px;
+    }
+    .no-feedback {
+      font-size: 18px;
+      color: #777;
+      font-style: italic;
+    }
+  </style>
+</head>
+<body>
+  <div class="feedback-container">
+    <h1>Feedback</h1>
+    <div class="rating" id="rating"></div>
+    <div class="feedback" id="feedback"></div>
+  </div>
+  <script>
+    // Retrieve saved feedback from localStorage
+    const savedFeedback = localStorage.getItem("feedback");
+    if (savedFeedback) {
+      const { rating, feedback } = JSON.parse(savedFeedback);
+      document.getElementById("rating").textContent = `Rating: ${rating.replace('rate-', '')} star(s)`;
+      document.getElementById("feedback").textContent = `Feedback: ${feedback}`;
+    } else {
+      document.getElementById("rating").textContent = "No feedback submitted yet.";
+    }
+  </script>
+</body>
+</html>
+<!-- ***************************************************** -->
+<!-- <!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="utf-8">
+  <title>Feedback Display</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+      background-color: #f4f4f4;
+    }
+    .feedback-container {
+      max-width: 800px;
+      margin: 0 auto;
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 5px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    .feedback-entry {
+      margin-bottom: 20px;
+      border-bottom: 1px solid #ccc;
+      padding-bottom: 15px;
+    }
+    .rating {
+      font-size: 24px;
+      margin-bottom: 5px;
+      color: #ffc107; /* Yellow color for rating */
+    }
+    .feedback-text {
+      font-size: 18px;
+      color: #555;
+    }
+    h1 {
+      font-size: 28px;
+      color: #333;
+      margin-bottom: 20px;
+    }
+    .no-feedback {
+      font-size: 18px;
+      color: #777;
+      font-style: italic;
+    }
+  </style>
+</head>
+<body>
+  <div class="feedback-container">
+    <h1>All Feedback</h1>
+    <div id="feedbackList"></div>
+  </div>
+  <script>
+   // Function to handle saving feedback
+const saveFeedback = () => {
+  widget.style.display = "none";
+  post.style.display = "block";
+  editBtn.onclick = () => {
+    widget.style.display = "block";
+    post.style.display = "none";
+  };
+
+  // Retrieve existing feedback data from localStorage or create an empty array
+  let existingFeedback = JSON.parse(localStorage.getItem("feedback")) || [];
+
+  // Save rating and feedback locally
+  const rating = document.querySelector("input[name='rate']:checked").id;
+  const feedback = document.getElementById("feedback").value;
+  const feedbackData = { rating, feedback };
+
+  // Append new feedback to existing feedback array
+  existingFeedback.push(feedbackData);
+
+  // Save updated feedback array to localStorage
+  localStorage.setItem("feedback", JSON.stringify(existingFeedback));
+
+  console.log("Feedback saved:", existingFeedback);
+
+  // Display updated feedback
+  displayFeedback();
+
+  return false;
+};
+
+// Function to display feedback on page load
+const displayFeedback = () => {
+  const savedFeedback = JSON.parse(localStorage.getItem("feedback"));
+
+  if (savedFeedback && savedFeedback.length > 0) {
+    const feedbackList = document.getElementById("feedbackList");
+    feedbackList.innerHTML = ""; // Clear previous feedback
+
+    savedFeedback.forEach((feedback, index) => {
+      const div = document.createElement("div");
+      div.classList.add("feedback-entry");
+
+      const ratingDiv = document.createElement("div");
+      ratingDiv.classList.add("rating");
+      ratingDiv.textContent = `Rating: ${feedback.rating.replace('rate-', '')} star(s)`;
+
+      const feedbackTextDiv = document.createElement("div");
+      feedbackTextDiv.classList.add("feedback-text");
+      feedbackTextDiv.textContent = `Feedback: ${feedback.feedback}`;
+
+      div.appendChild(ratingDiv);
+      div.appendChild(feedbackTextDiv);
+      feedbackList.appendChild(div);
+    });
+  } else {
+    const feedbackList = document.getElementById("feedbackList");
+    feedbackList.innerHTML = "<p class='no-feedback'>No feedback submitted yet.</p>";
+  }
+};
+
+// Call the displayFeedback function when the page loads
+window.onload = () => {
+  displayFeedback();
+};
+  </script>
+</body>
+</html> -->

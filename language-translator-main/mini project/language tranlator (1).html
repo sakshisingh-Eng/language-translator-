@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title>AksharVaani</title>
+        <link rel="stylesheet" href="mini.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="https://kit.fontawesome.com/8cf7670e58.js" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/tesseract.js@2.1.4/dist/tesseract.min.js"></script>
+
+    </head>
+    <body>
+<div class="container">
+    <h1 class="HEADING">AksharVaani
+        </h1>
+    <div class="wrapper">
+        <div class="text-input">
+            <textarea class="from-text" placeholder="Enter text" id="convert_text"></textarea>
+            <textarea class="to-text" placeholder="Translation" readonly disabled></textarea>
+        </div>
+        <ul class="controls">
+            <li class="row from">
+                <div class="icons">
+                    <i id="from" class="fa-solid fa-volume-high"></i>
+                    <i id="from" class="fa-solid fa-copy"></i>
+                    <i class="fa-solid fa-microphone" id="microphone"></i>
+                    <i id="uploadImage" class="fa-regular fa-image"></i>
+    <input type="file" id="fileInput" accept="image/*" style="display: none;">
+                    
+                </div>
+                <!-- <input type="file" id="fileInput" accept="image/*" style="display:none;"> -->
+                <select></select>
+            </li>
+            <li class="exchange"><i class="fa-solid fa-arrow-right-arrow-left"></i></li>
+            <li class="row to">
+                <select></select>
+                <div class="icons">
+                    <i id="to" class="fa-solid fa-volume-high"></i>
+                    <i id="to" class="fa-solid fa-copy"></i>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <button>Translate Text</button>
+</div>
+<div id="feedback"><a href="./feedback.html">Feedback</a></div>
+
+<script src="countries.js"></script>
+<script src="mini java.js"></script>
+<script src="microphone.js"></script>
+    </body>
+</html>
