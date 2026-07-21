@@ -1,2 +1,0 @@
-# language-translator-
-translator
